@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/name_edit_text"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/name_edit_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <EditText
+        android:id="@+id/age_edit_text"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/age_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/name_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/name_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/name_edit_text" />
+
+    <EditText
+        android:id="@+id/city_edit_text"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/city_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/age_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/age_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/age_edit_text" />
+
+    <EditText
+        android:id="@+id/college_edit_text"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/college_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/city_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/city_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/city_edit_text" />
+
+    <EditText
+        android:id="@+id/profession_edit_text"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/profession_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/college_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/college_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/college_edit_text" />
+
+    <EditText
+        android:id="@+id/animal_edit_text"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/animal_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/profession_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/profession_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/profession_edit_text" />
+
+    <EditText
+        android:id="@+id/petName_edit_text"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/petName_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/animal_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/animal_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/animal_edit_text" />
+
+    <TextView
+        android:id="@+id/storyOutput_text_view"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/storyOutput_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/petName_edit_text"
+        app:layout_constraintStart_toStartOf="@+id/petName_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/petName_edit_text" />
+
+    <Button
+        android:id="@+id/displayStory_button"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/displayStory_button"
+        app:layout_constraintEnd_toEndOf="@+id/storyOutput_text_view"
+        app:layout_constraintStart_toStartOf="@+id/storyOutput_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/storyOutput_text_view" />
+</androidx.constraintlayout.widget.ConstraintLayout>

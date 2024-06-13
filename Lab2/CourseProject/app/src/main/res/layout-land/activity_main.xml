@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Create a new "Layout Resource File" in activity_main
+     Under "Available qualifiers", select "Orientation" then select "Landscape"
+     Call the file "activity_main"
+     -->
+
+<!-- Here we are using FrameLayout, we can copy the code from the activity_main for portrait
+     Because we are not using ConstraintLayout, we don't copy the constraints -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/course_text_view"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/course_text_view"
+        android:layout_gravity="top|center" />
+        <!-- Adding layout properties to define position of these widgets -->
+
+    <TextView
+        android:id="@+id/courseTotalFees_text_view"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="120dp"
+        android:text="@string/courseTotalFees_text_view"
+        android:layout_gravity="top|end" />
+
+    <!-- Create -->
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="170dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/courseTotalFees_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="@string/courseTotalFees_button"
+        android:layout_gravity="center_horizontal" />
+
+
+    <Button
+        android:id="@+id/courseNext_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="@string/courseNext_button"
+        android:layout_gravity="center_horizontal" />
+
+    </LinearLayout>
+
+</FrameLayout>
+
+    <!--
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+    -->

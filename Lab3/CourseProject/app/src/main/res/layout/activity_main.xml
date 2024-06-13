@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/course_text_view"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="@string/course_text_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.157" />
+
+    <TextView
+        android:id="@+id/courseTotalFees_text_view"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/courseTotalFees_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/course_text_view"
+        app:layout_constraintStart_toStartOf="@+id/course_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/course_text_view" />
+
+    <Button
+        android:id="@+id/courseTotalFees_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/courseTotalFees_button"
+        app:layout_constraintEnd_toEndOf="@+id/courseTotalFees_text_view"
+        app:layout_constraintStart_toStartOf="@+id/courseTotalFees_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/courseTotalFees_text_view" />
+
+    <Button
+        android:id="@+id/courseNext_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/courseNext_button"
+        app:layout_constraintEnd_toEndOf="@+id/courseTotalFees_button"
+        app:layout_constraintStart_toStartOf="@+id/courseTotalFees_button"
+        app:layout_constraintTop_toBottomOf="@+id/courseTotalFees_button" />
+
+    <Button
+        android:id="@+id/courseDetail_button"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/courseDetail_button"
+        app:layout_constraintEnd_toEndOf="@+id/courseNext_button"
+        app:layout_constraintStart_toStartOf="@+id/courseNext_button"
+        app:layout_constraintTop_toBottomOf="@+id/courseNext_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

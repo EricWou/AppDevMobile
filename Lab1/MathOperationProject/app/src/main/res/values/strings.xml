@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MathOperationProject</string>
+    <string name="title_text_view">Simple Calculator</string>
+    <string name="x_var_edit_text">Enter x value</string>
+    <string name="y_var_edit_text">Enter y value</string>
+    <string name="sum_text_view">Sum:</string>
+    <string name="difference_text_view">Difference:</string>
+    <string name="product_text_view">Product:</string>
+    <string name="division_text_view">Division:</string>
+    <string name="calculate_button">Calculate</string>
+</resources>

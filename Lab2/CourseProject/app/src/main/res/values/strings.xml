@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CourseProject</string>
+    <string name="course_text_view">Course Name:</string>
+    <string name="courseTotalFees_text_view">Total Course Fees:</string>
+    <string name="courseTotalFees_button">TOTAL COURSE FEES</string>
+    <string name="courseNext_button">NEXT COURSE</string>
+</resources>

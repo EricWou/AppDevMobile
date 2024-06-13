@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="170dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/studentInfo_text_view"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:text="@string/studentInfo_text_view" />
+
+        <TextView
+            android:id="@+id/gradeAverage_text_view"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/gradeAverage_text_view" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/displayGrade_button"
+            android:layout_width="200dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/displayGrade_button"
+            app:cornerRadius="5dp" />
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/prevStudent_button"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:text="@string/prevStudent_button"
+                app:cornerRadius="5dp" />
+
+            <Button
+                android:id="@+id/nextStudent_button"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="10dp"
+                android:text="@string/nextStudent_button"
+                app:cornerRadius="5dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
+

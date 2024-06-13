@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="500dp"
+        android:layout_height="170dp"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/studentInfo_text_view"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="50dp"
+            android:text="@string/studentInfo_text_view" />
+
+        <TextView
+            android:id="@+id/gradeAverage_text_view"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="50dp"
+            android:text="@string/gradeAverage_text_view" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/displayGrade_button"
+            android:layout_width="200dp"
+            android:layout_height="65dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/displayGrade_button"
+            app:cornerRadius="5dp" />
+
+        <Button
+            android:id="@+id/prevStudent_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/prevStudent_button"
+            app:cornerRadius="5dp" />
+
+        <Button
+            android:id="@+id/nextStudent_button"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/nextStudent_button"
+            app:cornerRadius="5dp" />
+
+    </LinearLayout>
+
+</FrameLayout>

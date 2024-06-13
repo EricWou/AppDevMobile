@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">TemperatureProject</string>
+    <string name="title_text_view">Temperature Conversion</string>
+    <string name="tempInput_edit_text"> </string>
+    <string name="tempOutput_text_view">Temperature in Celsius is: </string>
+    <string name="convertTemp_button">Convert Temperature</string>
+</resources>
