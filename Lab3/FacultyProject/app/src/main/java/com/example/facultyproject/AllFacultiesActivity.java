@@ -3,7 +3,6 @@ package com.example.facultyproject;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.facultyproject.model.Faculty;
-import com.example.facultyproject.model.FacultyAdapter;
+import com.example.facultyproject.adapter.FacultyAdapter;
 
 import java.util.ArrayList;
 
@@ -40,11 +39,15 @@ public class AllFacultiesActivity extends AppCompatActivity {
 
         facultyArrayListRetrieve.addAll(facultyArrayListRetrieve);
 
+        //Looking for the recycler view (like looking for TextEdit)
         recyclerView = findViewById(R.id.faculty_recycler_view);
 
+        //passing the information from ArrayList to the adapter object
+        //then passing the adapter object to recyclerView
+        //similar
         adapter = new FacultyAdapter(facultyArrayListRetrieve, getApplication());
-
         recyclerView.setAdapter(adapter);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(AllFacultiesActivity.this));
 
     }
