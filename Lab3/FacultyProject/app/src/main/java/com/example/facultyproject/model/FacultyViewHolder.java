@@ -96,7 +96,7 @@ public class FacultyViewHolder extends RecyclerView.ViewHolder {
 
         view = itemView;
 
-        //Can try to implement dynamic 
+        //Can try to implement dynamic
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
