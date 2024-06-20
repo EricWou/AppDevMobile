@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 //in other words, the beginning and endpoint of the intention (changing views)
                 Intent intent = CourseActivity.newIntent(MainActivity.this, courseID, courseName, courseMaxEnrl, courseCredits);
 
-                //used to start the child activity (ie CourseActivity)
+                //startActivity() used to start the child activity (ie CourseActivity)
                 //the method startActivity() is used when you expect no result data from child activity
                 //startActivity(intent);
 
