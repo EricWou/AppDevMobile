@@ -1,1 +1,1 @@
-Directory for Application Development 2: Mobile class projects
+Repository for Application Development 2: Mobile class projects
