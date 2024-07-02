@@ -50,11 +50,9 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
-                "course_no='" + course_no + '\'' +
+        return  "course_no='" + course_no + '\'' +
                 ", course_name='" + course_name + '\'' +
                 ", max_enrl=" + max_enrl +
-                ", credits=" + credits +
-                '}';
+                ", credits=" + credits + "\n\n";
     }
 }

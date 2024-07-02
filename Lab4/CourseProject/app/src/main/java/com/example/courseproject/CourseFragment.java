@@ -17,19 +17,22 @@ import com.example.courseproject.model.Course;
 
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
+
 public class CourseFragment extends Fragment {
 
     //All widgest will be managed by the fragment
     private TextView courseTextView;
     private TextView courseTotalFeesTextView;
+    private TextView courseListTextView;
     private Button courseTotalFeesButton;
     private Button courseNextButton;
     private Button courseDetailButton;
     private int currentIndex = 0;
 
     private Course[] all_courses;
-
     private Context context;
+    private ArrayList<Course> courseModalArrayList;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +49,9 @@ public class CourseFragment extends Fragment {
 
         all_courses = new Course[]{c1, c2, c3, c4, c5, c6, c7};
 
-        //Instantiate an object from CourseBaseHelper
         context = getContext().getApplicationContext();
+
+        //Instantiate an object from CourseBaseHelper
         CourseBaseHelper courseBaseHelper = new CourseBaseHelper(context);
         courseBaseHelper.addNewCourse(c1);
         courseBaseHelper.addNewCourse(c2);
@@ -56,6 +60,9 @@ public class CourseFragment extends Fragment {
         courseBaseHelper.addNewCourse(c5);
         courseBaseHelper.addNewCourse(c6);
         courseBaseHelper.addNewCourse(c7);
+
+        c3.setCourse_name("Android Database System");
+        courseBaseHelper.updateCourse(c3);
     }
 
 
@@ -76,7 +83,7 @@ public class CourseFragment extends Fragment {
         courseTotalFeesButton = (Button) v.findViewById(R.id.total_fees_button);
         courseTotalFeesButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 courseTotalFeesTextView.setText("Total Course Fees is " +
                                 all_courses[currentIndex].calculateTotalFees());
@@ -91,7 +98,7 @@ public class CourseFragment extends Fragment {
         courseNextButton = (Button) v.findViewById(R.id.course_next_button);
         courseNextButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 currentIndex = (currentIndex + 1) % all_courses.length;
 
@@ -103,9 +110,24 @@ public class CourseFragment extends Fragment {
         //get the view of the courseDetailButton
         courseDetailButton = (Button) v.findViewById(R.id.course_detail_button);
         courseDetailButton.setOnClickListener((new View.OnClickListener() {
-            public void onClick(View v) {
+            public void onClick(View view) {
+                //here needs to be "view" instead of default "v" because there will be a clash
+                //with the View v that we declared earlier
 
+                //get view of the textview inside of the scrollview
+                courseListTextView = v.findViewById(R.id.course_list_text_view);
 
+                //read the table rows by calling method readCourses() from CourseBaseHelper
+                courseModalArrayList = new CourseBaseHelper(context).readCourses();
+
+                String allCourses = "";
+
+                //read the content of courseModalArrayList and load into courseListTextView
+                for (Course course:courseModalArrayList) {
+                    allCourses += course.toString();
+                }
+
+                courseListTextView.setText(allCourses);
             }
         }));
 

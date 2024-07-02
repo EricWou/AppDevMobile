@@ -7,7 +7,7 @@ public class CourseDBSchema {
         //CourseTable.NAME
         public static final String NAME="course";
 
-        public static final class Cols
+        public static final class Columns
         {
             public static final String COURSE_NO="course_no";
             public static final String COURSE_NAME="course_name";

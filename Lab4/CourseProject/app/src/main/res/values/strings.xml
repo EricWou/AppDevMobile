@@ -10,4 +10,5 @@
     <string name="course_max_enrl_edit_text">Enter Course Max Enrl</string>
     <string name="course_credits_edit_text">Enter Course Credits</string>
     <string name="course_update_button">COURSE UPDATE</string>
+    <string name="course_list_text_view">Course List</string>
 </resources>
