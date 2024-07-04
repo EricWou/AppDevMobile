@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- res -> drawable -> new -> Vector Asset -> choose and icon and rename it -->
+    <!-- app:showAsAction="ifRoom" shows the item on the toolbar if there is enough space -->
+    <item
+        android:id="@+id/course_option_1"
+        android:icon="@drawable/add_icon"
+        app:showAsAction="ifRoom"
+        android:title="Item1" />
+    <item
+        android:id="@+id/course_option_2"
+        android:icon="@drawable/build_icon"
+        app:showAsAction="ifRoom"
+        android:title="Item2" />
+    <item
+        android:id="@+id/course_option_3"
+        android:title="Item3" />
+    <item
+        android:id="@+id/course_option_4"
+        android:title="Item4" />
+    <item
+        android:id="@+id/course_option_5"
+        android:title="Item5" />
+</menu>
