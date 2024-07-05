@@ -2,72 +2,83 @@ package com.example.billingproject.model;
 
 public class Billing {
 
-    private int client_ID;
-    private String client_Name;
-    private String product_Name;
-    private double prd_Price;
-    private int prd_Qty;
+    private int client_id;
+    private String client_name;
+    private String product_name;
+    private double prd_price;
+    private int prd_qty;
     public static final double Fed_Tax = 0.075;
     public static final double Prv_Tax = 0.06;
 
     public Billing() {
-        this.client_ID = 0;
-        this.client_Name = "";
-        this.product_Name = "";
-        this.prd_Price = 0.0;
-        this.prd_Qty = 0;
+        this.client_id = 0;
+        this.client_name = "";
+        this.product_name = "";
+        this.prd_price = 0.0;
+        this.prd_qty = 0;
     }
 
-    public Billing(int client_ID, String client_Name, String product_Name, double prd_Price, int prd_Qty) {
-        this.client_ID = client_ID;
-        this.client_Name = client_Name;
-        this.product_Name = product_Name;
-        this.prd_Price = prd_Price;
-        this.prd_Qty = prd_Qty;
+    public Billing(int client_id, String client_name, String product_name, double prd_price, int prd_qty) {
+        this.client_id = client_id;
+        this.client_name = client_name;
+        this.product_name = product_name;
+        this.prd_price = prd_price;
+        this.prd_qty = prd_qty;
     }
 
-    public int getClient_ID() {
-        return client_ID;
+    public int getClient_id() {
+        return client_id;
     }
 
-    public void setClient_ID(int client_ID) {
-        this.client_ID = client_ID;
+    public void setClient_id(int client_id) {
+        this.client_id = client_id;
     }
 
-    public String getClient_Name() {
-        return client_Name;
+    public String getClient_name() {
+        return client_name;
     }
 
-    public void setClient_Name(String client_Name) {
-        this.client_Name = client_Name;
+    public void setClient_name(String client_name) {
+        this.client_name = client_name;
     }
 
-    public String getProduct_Name() {
-        return product_Name;
+    public String getProduct_name() {
+        return product_name;
     }
 
-    public void setProduct_Name(String product_Name) {
-        this.product_Name = product_Name;
+    public void setProduct_name(String product_name) {
+        this.product_name = product_name;
     }
 
-    public double getPrd_Price() {
-        return prd_Price;
+    public double getPrd_price() {
+        return prd_price;
     }
 
-    public void setPrd_Price(double prd_Price) {
-        this.prd_Price = prd_Price;
+    public void setPrd_price(double prd_price) {
+        this.prd_price = prd_price;
     }
 
-    public int getPrd_Qty() {
-        return prd_Qty;
+    public int getPrd_qty() {
+        return prd_qty;
     }
 
-    public void setPrd_Qty(int prd_Qty) {
-        this.prd_Qty = prd_Qty;
+    public void setPrd_qty(int prd_qty) {
+        this.prd_qty = prd_qty;
     }
 
     public double calculateBilling() {
-        return (prd_Price*prd_Qty) + (prd_Price*prd_Qty)*Fed_Tax + (prd_Price*prd_Qty)*Prv_Tax;
+        return (prd_price * prd_qty) + (prd_price * prd_qty)*Fed_Tax + (prd_price * prd_qty)*Prv_Tax;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Billing{" +
+                "client_ID=" + client_id +
+                ", client_Name='" + client_name + '\'' +
+                ", product_Name='" + product_name + '\'' +
+                ", prd_Price=" + prd_price +
+                ", prd_Qty=" + prd_qty +
+                '}';
     }
 }

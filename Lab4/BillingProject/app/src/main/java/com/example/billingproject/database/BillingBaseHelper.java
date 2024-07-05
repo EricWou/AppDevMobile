@@ -3,8 +3,10 @@ package com.example.billingproject.database;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -23,12 +25,14 @@ public class BillingBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table " + BillingDbSchema.BillingTable.NAME + "(" +
-                BillingDbSchema.BillingTable.Cols.CLIENT_ID + ", " +
-                BillingDbSchema.BillingTable.Cols.CLIENT_NAME + ", " +
-                BillingDbSchema.BillingTable.Cols.PRODUCT_NAME + ", " +
-                BillingDbSchema.BillingTable.Cols.PRD_PRICE + ", " +
-                BillingDbSchema.BillingTable.Cols.PRD_QTY + ")"
+
+        //need to specify the data types in order for update and delete to work properly?
+        db.execSQL("create table " + BillingDbSchema.BillingTable.NAME + " (" +
+                BillingDbSchema.BillingTable.Cols.CLIENT_ID + " INTEGER PRIMARY KEY, " +
+                BillingDbSchema.BillingTable.Cols.CLIENT_NAME + " TEXT, " +
+                BillingDbSchema.BillingTable.Cols.PRODUCT_NAME + " TEXT, " +
+                BillingDbSchema.BillingTable.Cols.PRD_PRICE + " REAL, " +
+                BillingDbSchema.BillingTable.Cols.PRD_QTY + " INTEGER)"
         );
     }
 
@@ -40,40 +44,58 @@ public class BillingBaseHelper extends SQLiteOpenHelper {
     private ContentValues getContentValues (Billing billing) {
         ContentValues values = new ContentValues();
 
-        values.put(BillingDbSchema.BillingTable.Cols.CLIENT_ID, billing.getClient_ID());
-        values.put(BillingDbSchema.BillingTable.Cols.CLIENT_NAME, billing.getClient_Name());
-        values.put(BillingDbSchema.BillingTable.Cols.PRODUCT_NAME, billing.getProduct_Name());
-        values.put(BillingDbSchema.BillingTable.Cols.PRD_PRICE, billing.getPrd_Price());
-        values.put(BillingDbSchema.BillingTable.Cols.PRD_QTY, billing.getPrd_Qty());
+        values.put(BillingDbSchema.BillingTable.Cols.CLIENT_ID, billing.getClient_id());
+        values.put(BillingDbSchema.BillingTable.Cols.CLIENT_NAME, billing.getClient_name());
+        values.put(BillingDbSchema.BillingTable.Cols.PRODUCT_NAME, billing.getProduct_name());
+        values.put(BillingDbSchema.BillingTable.Cols.PRD_PRICE, billing.getPrd_price());
+        values.put(BillingDbSchema.BillingTable.Cols.PRD_QTY, billing.getPrd_qty());
 
         return values;
     }
 
     public void createBilling(Billing billing) {
-        //input code here
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = getContentValues(billing);
+
+        db.insert(BillingDbSchema.BillingTable.NAME, null, values);
+
+        //db.close();
     }
 
     public void updateBilling(Billing billing) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String client_idString = billing.getClient_ID()+"";
+        String client_idString = String.valueOf(billing.getClient_id());
 
         ContentValues values = getContentValues(billing);
 
-        db.update(BillingDbSchema.BillingTable.NAME,
-                values,
-                BillingDbSchema.BillingTable.Cols.CLIENT_ID + "=?",
-                new String[]{client_idString});
+        Log.d("contentValues", values.toString());
+        Log.d("updateBilling(2)", billing.toString());
+
+        try {
+            int rows = db.update(BillingDbSchema.BillingTable.NAME,
+                    values,
+                    BillingDbSchema.BillingTable.Cols.CLIENT_ID + "=?",
+                    new String[]{client_idString});
+            Log.d("update success", "rows: "+rows);
+        } catch (SQLException e) {
+            Log.e("update failed", "Error updating billing", e);
+        }
+
+        //db.close();
     }
 
-    public void deleteBilling(Billing billing) {
+    public void deleteBilling(int client_id) {
         SQLiteDatabase db = this.getWritableDatabase();
 
-        String client_idString = billing.getClient_ID()+"";
+        String client_idString = client_id+"";
 
         db.delete(BillingDbSchema.BillingTable.NAME,
                 BillingDbSchema.BillingTable.Cols.CLIENT_ID + "=?",
                 new String[]{client_idString});
+
+        //db.close();
     }
 
     public Billing searchBilling(int client_id) {
@@ -90,20 +112,21 @@ public class BillingBaseHelper extends SQLiteOpenHelper {
         if (cursorBilling!=null) {
             if (cursorBilling.moveToFirst()) {
                 do {
-                    returnBilling.setClient_ID(cursorBilling.getInt(0));
-                    returnBilling.setClient_Name(cursorBilling.getString(1));
-                    returnBilling.setProduct_Name(cursorBilling.getString(2));
-                    returnBilling.setPrd_Price(cursorBilling.getDouble(3));
-                    returnBilling.setPrd_Qty(cursorBilling.getInt(4));
+                    returnBilling.setClient_id(cursorBilling.getInt(0));
+                    returnBilling.setClient_name(cursorBilling.getString(1));
+                    returnBilling.setProduct_name(cursorBilling.getString(2));
+                    returnBilling.setPrd_price(cursorBilling.getDouble(3));
+                    returnBilling.setPrd_qty(cursorBilling.getInt(4));
                 } while (cursorBilling.moveToNext());
             }
         }
         else {
-            returnBilling.setClient_ID(client_id);
-            returnBilling.setClient_Name("Not found in database");
+            returnBilling.setClient_id(client_id);
+            returnBilling.setClient_name("Not found in database");
         }
 
         cursorBilling.close();
+        //db.close();
 
         return returnBilling;
     }
@@ -126,8 +149,14 @@ public class BillingBaseHelper extends SQLiteOpenHelper {
         }
 
         cursorBilling.close();
+        //db.close();
 
         return billingModalArrayList;
+    }
+
+    public void dropTable(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("drop table "+ BillingDbSchema.BillingTable.NAME);
     }
 
 }

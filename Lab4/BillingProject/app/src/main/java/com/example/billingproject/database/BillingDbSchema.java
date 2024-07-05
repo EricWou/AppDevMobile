@@ -10,7 +10,7 @@ public class BillingDbSchema {
 
             public static final String CLIENT_ID = "client_id";
             public static final String CLIENT_NAME = "client_name";
-            public static final String PRODUCT_NAME = "produce_name";
+            public static final String PRODUCT_NAME = "product_name";
             public static final String PRD_PRICE = "prd_price";
             public static final String PRD_QTY = "prd_qty";
 

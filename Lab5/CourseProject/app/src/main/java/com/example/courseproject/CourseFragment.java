@@ -48,8 +48,9 @@ public class CourseFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //not necessary?
         //fragment will receive a callback from Fragment manager
-        setHasOptionsMenu(true);
+        //setHasOptionsMenu(true);
 
         Course.credits = 3;
 
@@ -116,7 +117,7 @@ public class CourseFragment extends Fragment {
             }
         });
 
-        /*
+        /* not necessary anymore (deprecated)
         //adds the toolbar to the activity (or fragment?)
         AppCompatActivity activity = (AppCompatActivity)getActivity();
         activity.setSupportActionBar(courseToolbar);
@@ -218,7 +219,7 @@ public class CourseFragment extends Fragment {
         return v;
     }
 
-    /*
+    /* no longer necessary (deprecated)
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         super.onCreateOptionsMenu(menu, inflater);
