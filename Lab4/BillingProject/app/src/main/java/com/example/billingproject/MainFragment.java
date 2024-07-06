@@ -37,7 +37,7 @@ public class MainFragment extends Fragment {
     private ArrayList<Billing> billingArray;
     private BillingBaseHelper baseHelper;
     private int currentIndex = 0;
-    private int updateIndex = 0;
+    //private int updateIndex = 0;
     public static String KEY_INDEX = "index";
     public static String KEY_UPDATE_INDEX = "update index";
     //public static String KEY_UPDATE_INFO = "updated info array";
@@ -56,26 +56,6 @@ public class MainFragment extends Fragment {
 
         //in case need to redo table
         //baseHelper.dropTable();
-
-        /*
-        //initiating database if database is empty
-        if (baseHelper.readBillings().isEmpty()) {
-            baseHelper.createBilling(b1);
-            baseHelper.createBilling(b2);
-            baseHelper.createBilling(b3);
-
-            billingArray.add(b1);
-            billingArray.add(b2);
-            billingArray.add(b3);
-        }
-        //otherwise retrieve data from database
-        else {
-            //Log.d("ERIC", "reached else statement");
-            billingArray.addAll(baseHelper.readBillings());
-            //Log.d("ERIC1", billingArray.get(1).getClient_Name());
-        }
-
-         */
 
     }
 
@@ -120,8 +100,18 @@ public class MainFragment extends Fragment {
 
                 Billing newBilling = new Billing(clientID, clientName, productName, price, quantity);
 
+                //adds new entry to ArrayList, database, and places currentIndex at proper position
                 billingArray.add(newBilling);
+                currentIndex=billingArray.size()-1;
                 baseHelper.createBilling(newBilling);
+                //should add check to make sure there is no duplicate client_id before createBilling()
+
+                //resets the edit_texts back to the default
+                idEditText.setText(R.string.id_edit_text);
+                clientNameEditText.setText(R.string.client_name_edit_text);
+                productNameEditText.setText(R.string.product_name_edit_text);
+                priceEditText.setText(R.string.price_edit_text);
+                quantityEditText.setText(R.string.quantity_edit_text);
 
                 String displayInputInfo = "Client: "+clientID+", "+
                         clientName+", Product: "+
@@ -156,7 +146,7 @@ public class MainFragment extends Fragment {
                 double productPrice = billingArray.get(currentIndex).getPrd_price();
                 int productQuantity = billingArray.get(currentIndex).getPrd_qty();
 
-                updateIndex = currentIndex;
+                //updateIndex = currentIndex;
 
                 Intent intent = BillingActivity.newIntent(getActivity(), clientID, clientName, productName, productPrice, productQuantity);
 
@@ -214,7 +204,7 @@ public class MainFragment extends Fragment {
             billingArray.addAll(baseHelper.readBillings());
         }
 
-        billingInfoTextView.setText(displayInfo(updateIndex));
+        //billingInfoTextView.setText(displayInfo(updateIndex));
 
         //to see output in Logcat (for debugging purposes)
         Log.d("MainFragment", "onStart() is called");
@@ -258,7 +248,7 @@ public class MainFragment extends Fragment {
         super.onSaveInstanceState(onSavedInstanceState);
 
         onSavedInstanceState.putInt(KEY_INDEX, currentIndex);
-        onSavedInstanceState.putInt(KEY_UPDATE_INDEX, updateIndex);
+        //onSavedInstanceState.putInt(KEY_UPDATE_INDEX, updateIndex);
 
         /*
         String clientIDUpdate = billingArray.get(updateIndex).getClient_id()+"";

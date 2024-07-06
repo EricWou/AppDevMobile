@@ -109,7 +109,8 @@ public class BillingBaseHelper extends SQLiteOpenHelper {
                                                 " where "+BillingDbSchema.BillingTable.Cols.CLIENT_ID+
                                                 " =\""+client_idString+"\"", null);
 
-        if (cursorBilling!=null) {
+        //checking to see if cursorBilling found no entries that match
+        if (cursorBilling.getCount() != 0) {
             if (cursorBilling.moveToFirst()) {
                 do {
                     returnBilling.setClient_id(cursorBilling.getInt(0));
@@ -120,9 +121,10 @@ public class BillingBaseHelper extends SQLiteOpenHelper {
                 } while (cursorBilling.moveToNext());
             }
         }
-        else {
+        else {;
             returnBilling.setClient_id(client_id);
-            returnBilling.setClient_name("Not found in database");
+            returnBilling.setClient_name("Entry not found");
+            returnBilling.setProduct_name("in database");
         }
 
         cursorBilling.close();

@@ -73,12 +73,10 @@ public class Billing {
 
     @Override
     public String toString() {
-        return "Billing{" +
-                "client_ID=" + client_id +
-                ", client_Name='" + client_name + '\'' +
-                ", product_Name='" + product_name + '\'' +
-                ", prd_Price=" + prd_price +
-                ", prd_Qty=" + prd_qty +
-                '}';
+        return  "client_ID= " + client_id +
+                "\nclient_Name= " + client_name +
+                "\nproduct_Name= " + product_name +
+                "\nprd_Price= " + prd_price +
+                "\nprd_Qty= " + prd_qty +"\n\n";
     }
 }

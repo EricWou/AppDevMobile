@@ -48,8 +48,6 @@ public class BillingFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         Log.d("BillingFragment", "onCreate() is called");
-
-        //baseHelper = new BillingBaseHelper(getContext().getApplicationContext());
     }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -116,6 +114,33 @@ public class BillingFragment extends Fragment {
                 Toast.makeText(getActivity(),
                         "Client: "+client_id+" deleted",
                         Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        billingSearchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int client_id = Integer.parseInt(idUpdateEditText.getText().toString());
+
+                Billing searchBilling = baseHelper.searchBilling(client_id);
+
+                idUpdateEditText.setText(searchBilling.getClient_id()+"");
+                clientNameUpdateEditText.setText(searchBilling.getClient_name());
+                productNameUpdateEditText.setText(searchBilling.getProduct_name());
+                priceUpdateEditText.setText(searchBilling.getPrd_price()+"");
+                quantityUpdateEditText.setText(searchBilling.getPrd_qty()+"");
+            }
+        });
+
+        billingViewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getParentFragmentManager()
+                        .beginTransaction()
+                        .setReorderingAllowed(true)
+                        .replace(R.id.billing_fragment_container, BillingViewFragment.class, null)
+                        .commit();
             }
         });
 
