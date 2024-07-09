@@ -14,4 +14,5 @@
     <string name="course_start_service_button">START SERVICE</string>
     <string name="course_stop_service_button">STOP SERVICE</string>
     <string name="course_link_button">COURSE LINK</string>
+    <string name="title_activity_course_maps">CourseMapsActivity</string>
 </resources>

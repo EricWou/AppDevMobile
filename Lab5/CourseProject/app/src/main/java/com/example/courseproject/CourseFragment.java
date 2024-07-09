@@ -97,10 +97,20 @@ public class CourseFragment extends Fragment {
         courseToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                Intent intent;
+
                 if (item.getItemId() == R.id.course_option_1) {
+                    //start new Activity CourseMapActivity
+                    intent = new Intent(getActivity(), CourseMapsActivity.class);
+                    startActivity(intent);
+
                     Toast.makeText(getActivity(), "Item 1", Toast.LENGTH_SHORT).show();
                 }
                 else if (item.getItemId() == R.id.course_option_2) {
+                    //start new Activity consuming Web Services
+                    intent = new Intent(getActivity(), CourseContentActivity.class);
+                    startActivity(intent);
+
                     Toast.makeText(getActivity(), "Item 2", Toast.LENGTH_SHORT).show();
                 }
                 else if (item.getItemId() == R.id.course_option_3) {
