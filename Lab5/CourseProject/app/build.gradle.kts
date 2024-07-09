@@ -22,15 +22,20 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField("String", "API_KEY", "\"${localProperties.getProperty("googleMapsAPIKey")}\"")
-        manifestPlaceholders["apiKey"] = localProperties.getProperty("googleMapsAPIKey")
+        
     }
 
     buildTypes {
+        //for deployment
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            buildConfigField("String", "GOOGLE_API_KEY", "\"AIzaSyC3Z0OYU8cmc980OemFLNkiFCBbVV6mnzk\"")
+        }
+        //for testing (ex: if wants a separate API_KEY for testing purposes)
+        debug {
+            buildConfigField("String", "GOOGLE_API_KEY", "\"AIzaSyC3Z0OYU8cmc980OemFLNkiFCBbVV6mnzk\"")
+
         }
     }
     compileOptions {
