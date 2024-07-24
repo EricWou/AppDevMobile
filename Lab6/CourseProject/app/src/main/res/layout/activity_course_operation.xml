@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CourseOperationActivity">
+
+    <EditText
+        android:id="@+id/operation_courseNo_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="75dp"
+        android:ems="10"
+        android:hint="Enter Course No"
+        android:inputType="text"
+        android:text="@string/operation_courseName_edit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/operation_courseName_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Course Name"
+        android:inputType="text"
+        android:text="@string/operation_courseName_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/operation_courseNo_edit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/operation_courseNo_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/operation_courseNo_edit_text" />
+
+    <EditText
+        android:id="@+id/operation_maxEnrl_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Max Enrollment"
+        android:inputType="text"
+        android:text="@string/operation_maxEnrl_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/operation_courseName_edit_text"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/operation_courseName_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/operation_courseName_edit_text" />
+
+    <EditText
+        android:id="@+id/operation_courseCredits_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter Course Credits"
+        android:inputType="text"
+        android:text="@string/operation_courseCredits_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/operation_maxEnrl_edit_text"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/operation_maxEnrl_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/operation_maxEnrl_edit_text" />
+
+    <ScrollView
+        android:id="@+id/operation_course_list_scroll_view"
+        android:layout_width="270dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/operation_courseCredits_edit_text"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="@+id/operation_courseCredits_edit_text"
+        app:layout_constraintTop_toBottomOf="@+id/operation_courseCredits_edit_text">
+
+        <!-- no need to constrain TextView, because it's automatically constrained inside ScrollView -->
+        <!-- ScrollView is just a container for other views, by itself won't see anything with just ScrollView -->
+        <TextView
+            android:id="@+id/operation_course_list_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/course_list_text_view" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/operation_add_course_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        app:cornerRadius="10dp"
+        android:text="@string/operation_add_course_button"
+        app:layout_constraintEnd_toEndOf="@+id/operation_course_list_scroll_view"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/operation_course_list_scroll_view"
+        app:layout_constraintTop_toBottomOf="@+id/operation_course_list_scroll_view" />
+
+    <Button
+        android:id="@+id/operation_search_course_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:cornerRadius="10dp"
+        android:text="@string/operation_search_course_button"
+        app:layout_constraintEnd_toEndOf="@+id/operation_add_course_button"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="@+id/operation_add_course_button"
+        app:layout_constraintTop_toBottomOf="@+id/operation_add_course_button" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

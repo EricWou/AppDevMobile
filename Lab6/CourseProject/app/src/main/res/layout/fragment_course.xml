@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true">
+    <!-- android:fitsSystemWindows="true" keeps the toolbar separate from the top bar -->
+
+    <!-- android:layout_width="0dp" sets the width to the full width-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/course_toolbar"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.0" />
+
+    <TextView
+        android:id="@+id/course_text_view"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:text="@string/course_text_view"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.147" />
+
+    <TextView
+        android:id="@+id/course_total_fees_text_view"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/course_total_fees_text_view"
+        app:layout_constraintEnd_toEndOf="@+id/course_text_view"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/course_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/course_text_view" />
+
+    <ScrollView
+        android:id="@+id/course_list_scroll_view"
+        android:layout_width="270dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="@+id/course_total_fees_text_view"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="@+id/course_total_fees_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/course_total_fees_text_view">
+
+        <!-- no need to constrain TextView, because it's automatically constrained inside ScrollView -->
+        <!-- ScrollView is just a container for other views, by itself won't see anything with just ScrollView -->
+        <TextView
+            android:id="@+id/course_list_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/course_list_text_view" />
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/total_fees_button"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/total_fees_button"
+        app:layout_constraintEnd_toEndOf="@+id/course_list_scroll_view"
+        app:layout_constraintStart_toStartOf="@+id/course_list_scroll_view"
+        app:layout_constraintTop_toBottomOf="@+id/course_list_scroll_view" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout2"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/total_fees_button"
+        app:layout_constraintStart_toStartOf="@+id/total_fees_button"
+        app:layout_constraintTop_toBottomOf="@+id/total_fees_button" >
+
+        <Button
+            android:id="@+id/course_next_button"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:text="@string/course_next_button"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/course_link_button"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:text="@string/course_link_button"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout1"
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearlayout2"
+        app:layout_constraintStart_toStartOf="@+id/linearlayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout2">
+
+        <Button
+            android:id="@+id/course_detail_button"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            app:cornerRadius="10dp"
+            android:text="@string/course_detail_button" />
+
+        <Button
+            android:id="@+id/course_start_service_button"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            app:cornerRadius="10dp"
+            android:text="@string/course_start_service_button" />
+
+        <Button
+            android:id="@+id/course_stop_service_button"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            app:cornerRadius="10dp"
+            android:text="@string/course_stop_service_button" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout3"
+        android:layout_width="360dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/linearlayout1"
+        app:layout_constraintStart_toStartOf="@+id/linearlayout1"
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout1" >
+
+        <Button
+            android:id="@+id/logout_button"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            app:cornerRadius="10dp"
+            android:text="@string/logout_button" />
+
+        <Button
+            android:id="@+id/write_to_firebase_button"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            app:cornerRadius="10dp"
+            android:text="@string/write_to_firebase_button" />
+
+        <Button
+            android:id="@+id/read_from_firebase_button"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            app:cornerRadius="10dp"
+            android:text="@string/read_from_firebase_button" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
